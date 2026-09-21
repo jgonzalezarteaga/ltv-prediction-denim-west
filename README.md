@@ -21,7 +21,7 @@ A two-stage probabilistic model, applied to each customer's purchase history:
 3. **Gamma-Gamma model** — learns each customer's typical spend and predicts the *average value* of each future purchase.
 4. **LTV = predicted purchases × predicted average value** — the two predictions combined give a 6-month forward-looking value estimate per customer, not just a backward-looking total.
 
-The output is a ranked CSV: every recurring customer, sorted from highest to lowest predicted 6-month value.
+The output is a ranked CSV (`LTV_Prediction_DenimWest.csv`): every recurring customer, sorted from highest to lowest predicted 6-month value.
 
 ## Data pipeline (inside the notebook)
 
@@ -39,17 +39,17 @@ raw Tiendanube export (CSV)
 
 ## A note on privacy
 
-The original notebook was trained on real Denim West customer data — real emails, names, and purchase history. **None of that is in this repository.** The dataset here (`data/ventas_ejemplo.csv`) has every personally identifying field replaced with fake values (`cliente_0001@ejemplo.com`, etc.) while preserving the real transactional patterns — same purchase frequency, same order values, same dates — so the model's behavior and results are fully representative of what it actually produced, without exposing a single real customer.
+The original notebook was trained on real Denim West customer data — real emails, names, and purchase history. **None of that is in this repository.** The dataset here (`data/sales_example.csv`) has every personally identifying field replaced with fake values (`cliente_0001@ejemplo.com`, etc.) while preserving the real transactional patterns — same purchase frequency, same order values, same dates — so the model's behavior and results are fully representative of what it actually produced, without exposing a single real customer.
 
 ## Running it
 
-Open `notebook/Predictivo_LTV_DenimWest.ipynb` in Google Colab or Jupyter, with `data/ventas_ejemplo.csv` in the same working directory (or update the path in the first cell). Install the one dependency not preinstalled in Colab:
+Open `notebook/LTV_Prediction_DenimWest.ipynb` in Google Colab or Jupyter, with `data/sales_example.csv` in the same working directory (or update the path in the first cell). Install the one dependency not preinstalled in Colab:
 
 ```bash
 pip install lifetimes
 ```
 
-Run all cells top to bottom. The final cell exports `LTV_Predicho_DenimWest.csv` with the ranked customer list.
+Run all cells top to bottom. The final cell exports `LTV_Prediction_DenimWest.csv` with the ranked customer list.
 
 ---
 

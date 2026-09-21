@@ -21,7 +21,7 @@ Un modelo probabilístico en dos etapas, aplicado al historial de compras de cad
 3. **Modelo Gamma-Gamma** — aprende el gasto típico de cada cliente y predice el **valor promedio** de cada compra futura.
 4. **LTV = compras predichas × valor promedio predicho** — las dos predicciones combinadas dan una estimación de valor a 6 meses hacia adelante, no solo un total histórico.
 
-El resultado es un CSV ordenado: todos los clientes recurrentes, de mayor a menor valor predicho a 6 meses.
+El resultado es un CSV ordenado (`LTV_Prediction_DenimWest.csv`): todos los clientes recurrentes, de mayor a menor valor predicho a 6 meses.
 
 ## Pipeline de datos (dentro del notebook)
 
@@ -39,17 +39,17 @@ export crudo de Tiendanube (CSV)
 
 ## Una nota sobre privacidad
 
-El notebook original se entrenó con datos reales de clientes de Denim West — emails, nombres e historial de compra reales. **Nada de eso está en este repositorio.** El dataset acá (`data/ventas_ejemplo.csv`) tiene cada campo de identificación personal reemplazado por valores ficticios (`cliente_0001@ejemplo.com`, etc.), preservando el patrón transaccional real — misma frecuencia de compra, mismos montos de pedido, mismas fechas — así que el comportamiento y los resultados del modelo son completamente representativos de lo que produjo en realidad, sin exponer a ningún cliente real.
+El notebook original se entrenó con datos reales de clientes de Denim West — emails, nombres e historial de compra reales. **Nada de eso está en este repositorio.** El dataset acá (`data/sales_example.csv`) tiene cada campo de identificación personal reemplazado por valores ficticios (`cliente_0001@ejemplo.com`, etc.), preservando el patrón transaccional real — misma frecuencia de compra, mismos montos de pedido, mismas fechas — así que el comportamiento y los resultados del modelo son completamente representativos de lo que produjo en realidad, sin exponer a ningún cliente real.
 
 ## Cómo correrlo
 
-Abrí `notebook/Predictivo_LTV_DenimWest.ipynb` en Google Colab o Jupyter, con `data/ventas_ejemplo.csv` en el mismo directorio de trabajo (o actualizá la ruta en la primera celda). Instalá la única dependencia que no viene preinstalada en Colab:
+Abrí `notebook/LTV_Prediction_DenimWest.ipynb` en Google Colab o Jupyter, con `data/sales_example.csv` en el mismo directorio de trabajo (o actualizá la ruta en la primera celda). Instalá la única dependencia que no viene preinstalada en Colab:
 
 ```bash
 pip install lifetimes
 ```
 
-Corré todas las celdas de arriba hacia abajo. La última celda exporta `LTV_Predicho_DenimWest.csv` con la lista de clientes ordenada.
+Corré todas las celdas de arriba hacia abajo. La última celda exporta `LTV_Prediction_DenimWest.csv` con la lista de clientes ordenada.
 
 ---
 
